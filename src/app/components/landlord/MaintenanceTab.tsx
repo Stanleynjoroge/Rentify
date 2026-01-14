@@ -1,4 +1,3 @@
-import React from 'react';
 import { useApp } from '@/context/AppContext';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
@@ -7,7 +6,7 @@ import { Wrench, CheckCircle2, Clock } from 'lucide-react';
 import { format } from 'date-fns';
 
 export function MaintenanceTab() {
-  const { maintenanceRequests, updateMaintenanceRequest, units, properties, users, assignments, currentUser } =
+  const { maintenanceRequests, updateMaintenanceRequest, units, properties, users, currentUser } =
     useApp();
 
   const landlordProperties = properties.filter((p) => p.landlordId === currentUser?.id);

@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Plus, Building2, MapPin } from 'lucide-react';
 
 export function PropertiesTab() {
-  const { properties, addProperty, currentUser, units, assignments, users } = useApp();
+  const { properties, addProperty, currentUser, units, assignments } = useApp();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [newProperty, setNewProperty] = useState({
     name: '',
