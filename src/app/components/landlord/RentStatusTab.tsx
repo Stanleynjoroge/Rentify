@@ -1,11 +1,10 @@
-import React from 'react';
 import { useApp } from '@/context/AppContext';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
 import { DollarSign, CheckCircle2, AlertCircle, Clock } from 'lucide-react';
 
 export function RentStatusTab() {
-  const { properties, units, assignments, users, payments, getRentStatus, currentUser } = useApp();
+  const { properties, units, assignments, users, getRentStatus, currentUser } = useApp();
 
   const landlordProperties = properties.filter((p) => p.landlordId === currentUser?.id);
   const landlordUnits = units.filter((u) =>

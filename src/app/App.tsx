@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AppProvider, useApp } from '@/context/AppContext';
 import { LandingPage } from '@/app/components/LandingPage';
 import { LoginPage } from '@/app/components/LoginPage';

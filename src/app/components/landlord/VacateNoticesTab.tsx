@@ -1,8 +1,7 @@
-import React from 'react';
 import { useApp } from '@/context/AppContext';
 import { Card, CardContent } from '@/app/components/ui/card';
 import { Badge } from '@/app/components/ui/badge';
-import { UserMinus, Calendar } from 'lucide-react';
+import { UserMinus } from 'lucide-react';
 import { format, differenceInDays } from 'date-fns';
 
 export function VacateNoticesTab() {

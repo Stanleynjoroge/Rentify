@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
@@ -6,7 +6,7 @@ import { Badge } from '@/app/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/app/components/ui/dialog';
 import { Input } from '@/app/components/ui/input';
 import { Label } from '@/app/components/ui/label';
-import { DollarSign, Home, Calendar, CheckCircle2, AlertCircle, Clock, CreditCard } from 'lucide-react';
+import { Home, CheckCircle2, AlertCircle, Clock, CreditCard } from 'lucide-react';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
 
