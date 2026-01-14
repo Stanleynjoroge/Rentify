@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
 import { Building2 } from 'lucide-react';
@@ -8,65 +8,87 @@ interface LandingPageProps {
 }
 
 export function LandingPage({ onGetStarted }: LandingPageProps) {
+  const [loading, setLoading] = useState(true);
+  setTimeout(() => setLoading(false), 5000);
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
-      {/* Logo */}
-      <div className="mb-8 text-center">
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <div className="bg-gradient-to-r from-purple-600 to-blue-900 p-4 rounded-2xl shadow-lg">
-            <Building2 className="h-12 w-12 text-white" />
-          </div>
+    <div style={{ backgroundImage: 'url("/landing-bg.png")' }}
+      className="min-h-screen bg-gradient-to-br bg-cover bg-center bg-no-repeat from-purple-50 via-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4"
+    >
+      {loading ? (
+        <div className="flex items-center justify-center h-full">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
         </div>
-        <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-900 bg-clip-text text-transparent">
-          Rentify
-        </h1>
-        <p className="text-muted-foreground mt-2">Smart Property Management</p>
-      </div>
-
-      {/* Welcome Card */}
-      <Card className="w-full max-w-md shadow-xl border-2 border-purple-200">
-        <CardHeader className="text-center pb-4">
-          <div className="mb-4">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 mb-4">
-              <span className="text-3xl">👋</span>
-            </div>
-          </div>
-          <CardTitle className="text-3xl">Hi there Thomas!</CardTitle>
-          <CardDescription className="text-base mt-2">
-            Welcome to Rentify - your all-in-one property management solution
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <div className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
-                <span className="text-purple-600 font-semibold">✓</span>
+      ) : (
+        <>
+          {/* Logo */}
+          <div className="mb-8 text-center">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="bg-gradient-to-r from-purple-600 to-blue-900 p-4 rounded-2xl shadow-lg">
+                <Building2 className="h-12 w-12 text-white" />
               </div>
-              <span>Track rental units and tenants</span>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                <span className="text-blue-900 font-semibold">✓</span>
-              </div>
-              <span>Manage rent payments effortlessly</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
-                <span className="text-purple-600 font-semibold">✓</span>
-              </div>
-              <span>Handle maintenance requests easily</span>
-            </div>
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-900 bg-clip-text text-transparent">
+              Rentify
+            </h1>
+            <p className="text-muted-foreground mt-2">Smart Property Management</p>
           </div>
 
-          <Button onClick={onGetStarted} className="w-full h-12 text-base shadow-lg" size="lg">
-            Get Started
-          </Button>
-        </CardContent>
-      </Card>
+          {/* Welcome Card */}
+          <Card
+            className="w-full max-w-md text-white"
+            style={{
+              background: 'rgba(136, 20, 133, 0.36)',
+              borderRadius: '16px',
+              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(11.2px)',
+              WebkitBackdropFilter: 'blur(11.2px)',
+              border: '1px solid rgba(136, 20, 133, 0.49)',
+            }}
+          >
+            <CardHeader className="text-center pb-4">
+              <div className="mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 mb-4">
+                  <span className="text-3xl">👋</span>
+                </div>
+              </div>
+              <CardTitle className="text-3xl">Hi there Thomas!</CardTitle>
+              <CardDescription className="text-white mt-2">
+                Welcome to Rentify - your all-in-one property management solution
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-3 text-sm text-white">
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                    <span className="text-purple-600 font-semibold">✓</span>
+                  </div>
+                  <span>Track rental units and tenants</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                    <span className="text-blue-900 font-semibold">✓</span>
+                  </div>
+                  <span>Manage rent payments effortlessly</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                    <span className="text-purple-600 font-semibold">✓</span>
+                  </div>
+                  <span>Handle maintenance requests easily</span>
+                </div>
+              </div>
 
-      <p className="text-sm text-muted-foreground mt-6 text-center max-w-md">
-        Streamline your property management with Rentify's intuitive platform
-      </p>
+              <Button onClick={onGetStarted} className="w-full h-12 text-base shadow-lg" size="lg">
+                Get Started
+              </Button>
+            </CardContent>
+          </Card>
+
+          <p className="text-sm text-muted-foreground mt-6 text-center max-w-md">
+            Streamline your property management with Rentify's intuitive platform
+          </p>
+        </>
+      )}
     </div>
   );
 }
